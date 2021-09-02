@@ -1,5 +1,8 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -26,6 +29,10 @@ public class Main {
         //DEBUG DELETE
         System.out.println(rows+" "+cols);
         //Create dictionary list
+        List<String> dictionary = new ArrayList<String>();
+        while(dictScanner.hasNext())
+            dictionary.add(dictScanner.nextLine().trim().toLowerCase());
+        dictScanner.close();
         //Create char array
     }
 }
