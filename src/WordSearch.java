@@ -73,6 +73,17 @@ public class WordSearch {
             System.out.println(foundWords.get(i));
             counter++;
         }
+        //Uses special flag to run conditionally
+        if(args[2]!=null)
+        {
+            System.out.println("Diagonal!");
+            searchDiagonalTest(puzzleChars,dictionary,foundWords,rows,cols);
+            for(int i = counter;i<foundWords.size();i++)
+            {
+                System.out.println(foundWords.get(i));
+                counter++;
+            }
+        }
     }
     //Declare search methods here
     public static void searchLeftToRight(char[][] chars,List<String> dictionary,List<String> foundWords, int rows,int cols)
@@ -157,5 +168,29 @@ public class WordSearch {
             }
             hold="";
         }
+    }
+
+    public static void searchDiagonalTest(char[][] chars,List<String> dictionary,List<String> foundWords, int rows,int cols)
+    {
+        String hold ="";
+
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                for(int k=0+i,l=0+j;k<rows && l<cols;k++,l++)
+                {
+                    hold += chars[k][l];
+                    if(hold.length()<3)
+                        continue;
+                    if(dictionary.contains(hold))
+                        foundWords.add(foundWords.size(),hold);
+                }
+                hold="";
+            }
+            hold="";
+        }
+
+
     }
 }
