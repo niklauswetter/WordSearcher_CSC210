@@ -15,8 +15,6 @@ public class WordSearch {
         //Store CL args
         dictPath = args[0];
         puzzlePath = args[1];
-        //DEBUG DELETE
-        System.out.println(dictPath+" "+puzzlePath);
         //File Objects
         File dict = new File(dictPath);
         File puzzle = new File(puzzlePath);
@@ -26,8 +24,6 @@ public class WordSearch {
         //Get grid dimensions
         rows = puzzleScanner.nextInt();
         cols = puzzleScanner.nextInt();
-        //DEBUG DELETE
-        System.out.println(rows+" "+cols);
         //Create dictionary list
         List<String> dictionary = new ArrayList<String>();
         while(dictScanner.hasNext())
@@ -50,28 +46,28 @@ public class WordSearch {
         //Begin searching for words
         int counter =0;
         searchLeftToRight(puzzleChars,dictionary,foundWords,rows,cols);
-        System.out.println("Left to right!");
+        //System.out.println("Left to right!");
         for(int i=counter;i<foundWords.size();i++)
         {
             System.out.println(foundWords.get(i));
             counter++;
         }
         searchRightToLeft(puzzleChars,dictionary,foundWords,rows,cols);
-        System.out.println("Right to left!");
+        //System.out.println("Right to left!");
         for(int i = counter;i<foundWords.size();i++)
         {
             System.out.println(foundWords.get(i));
             counter++;
         }
         searchTopToBottom(puzzleChars,dictionary,foundWords,rows,cols);
-        System.out.println("Top to bottom!");
+        //System.out.println("Top to bottom!");
         for(int i = counter;i<foundWords.size();i++)
         {
             System.out.println(foundWords.get(i));
             counter++;
         }
         searchBottomToTop(puzzleChars,dictionary,foundWords,rows,cols);
-        System.out.println("Bottom to top!");
+        //System.out.println("Bottom to top!");
         for(int i = counter;i<foundWords.size();i++)
         {
             System.out.println(foundWords.get(i));
