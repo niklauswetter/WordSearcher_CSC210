@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+public class  Main {
 
     public static void main(String[] args) throws IOException
     {
@@ -34,5 +34,25 @@ public class Main {
             dictionary.add(dictScanner.nextLine().trim().toLowerCase());
         dictScanner.close();
         //Create char array
+        char[][] puzzleChars = new char[rows][cols];
+        //Store puzzle characters in array
+        puzzleScanner.nextLine();
+        for(int i = 0; i<rows;i++)
+        {
+            String rowLine = puzzleScanner.nextLine().toLowerCase().replaceAll("\\s","");
+            char[] temp = rowLine.toCharArray();
+            for(int j=0;j<cols;j++)
+                puzzleChars[i][j]=temp[j];
+        }
+        puzzleScanner.close();
+        //DEBUG DELETE
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+                System.out.print(puzzleChars[i][j]);
+            System.out.println();
+        }
+        //Begin searching for words
     }
+    //Declare search methods here
 }
